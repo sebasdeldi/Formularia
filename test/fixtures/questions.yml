@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id         :integer          not null, primary key
+#  body       :string
+#  form_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyString
+  form: MyString
+  _id: 
+
+two:
+  body: MyString
+  form: MyString
+  _id: 

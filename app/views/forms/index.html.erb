@@ -3,9 +3,16 @@
 		<div class="col-lg-12">
 			<ul>
 				<% @forms.each do |form| %>
-					<li><%= form %></li>
+					<% if current_user == form.user%>
+						<li>
+							<%= link_to form.title,  form_path(form)%>
+							<%= link_to "Delete Form", form_path(form), class: "btn btn-primary", method: :delete %>
+						</li>
+						<br>
+					<% end %>
 				<% end %>
 			</ul>
+			<%= link_to "Create Form", new_form_path, class: "btn btn-primary" %>
 		</div>
 	</div>
 </div>

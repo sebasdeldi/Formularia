@@ -1,0 +1,37 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+
+			<% if !params[:form_trigger] %>
+				<%= form_tag new_form_path do%>
+					<div class="form-group">
+						<%= text_field_tag 'numberOfQuestions', nil,class: "form-control numeric", placeholder: "Number of questions", :maxlength => 2%>
+						<%= hidden_field_tag 'form_trigger', '000' %>
+
+					</div>
+					<button class="btn btn-primary">Add Questions</button>
+				<% end %>
+			<% end %>
+			<br>
+
+		<% if params[:form_trigger] %>
+			<%= form_for @form do |f| %>
+				<div class="form-group">
+					<%= f.text_field :title, class: "form-control", placeholder: "Insert a title" %>
+				</div>
+
+
+				<%= f.fields_for :questions do |builder| %>
+					<div class="form-group">
+						<%= builder.text_field :body, class: "form-control", placeholder: "Insert a question" %>
+					</div>
+				<% end %>
+
+				<div class="form-group">
+					<%= f.submit class: "btn btn-primary" %>
+				</div>
+			<% end %>
+		<% end %>
+		</div>
+	</div>
+</div>

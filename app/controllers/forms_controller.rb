@@ -1,5 +1,5 @@
 class FormsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, only: [:index]
 
 
 	def index
@@ -27,7 +27,15 @@ class FormsController < ApplicationController
 	end
 
 	def show
+
 		@form = Form.find(params[:id])
+		questionsId = @form.questions.collect(&:id)
+		numberOfAnswers = questionsId.size
+
+		(0..numberOfAnswers-1).each do |i|
+			question = Question.find(questionsId[i])
+			question.answers.build
+		end
 	end
 
 	def destroy
@@ -37,6 +45,6 @@ class FormsController < ApplicationController
 
 	private
 		def form_params
-			params.require(:form).permit(:title, :user_id, questions_attributes: [ :body, :id, :form_id])
+			params.require(:form).permit(:title, :user_id, questions_attributes: [ :body, :id, :form_id, answers_attributes: [ :body, :id, :question_id]] )
 		end
 end

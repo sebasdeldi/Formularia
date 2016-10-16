@@ -7,6 +7,22 @@
 					<li><%= question.body %></li>
 				<% end %>
 			</ol>
+
+			<%= form_for @form do |f| %>
+
+				<%= f.fields_for :questions do |builder| %>
+					<% builder.fields_for :answers do |ansBuilder| %>
+						<div class="form-group">
+							<%= ansBuilder.text_field :body, class: "form-control", placeholder: "Answer the question" %>
+						</div>
+					<% end %>
+				<% end %>
+
+				<div class="form-group">
+					<%= f.submit class: "btn btn-primary", value: "Send Answer" %>
+				</div>
+			<% end %>
 		</div>
 	</div>
 </div>
+

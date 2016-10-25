@@ -27,15 +27,23 @@ class FormsController < ApplicationController
 	end
 
 	def show
-
+		@answer = Answer.new
 		@form = Form.find(params[:id])
-		questionsId = @form.questions.collect(&:id)
-		numberOfAnswers = questionsId.size
-
-		(0..numberOfAnswers-1).each do |i|
-			question = Question.find(questionsId[i])
-			question.answers.build
+		questions_id = @form.questions.collect(&:id)
+		if request.post?
+			questions_id.each do |question_id|
+				id_string = question_id.to_s
+				Answer.create(body: params[id_string], question_id: question_id)
+			end
+			redirect_to root_path
+		else
+			numberOfAnswers = questions_id.size
+			(0..numberOfAnswers-1).each do |i|
+				question = Question.find(questions_id[i])
+				question.answers.build
+			end
 		end
+
 	end
 
 	def destroy

@@ -7,21 +7,29 @@
 					<li><%= question.body %></li>
 				<% end %>
 			</ol>
+			<% if @form.user != current_user %>
 
-			<%= form_for @form do |f| %>
-
-				<%= f.fields_for :questions do |builder| %>
-					<% builder.fields_for :answers do |ansBuilder| %>
-						<div class="form-group">
-							<%= ansBuilder.text_field :body, class: "form-control", placeholder: "Answer the question" %>
-						</div>
+				<%= form_tag questions_answers_path do %>
+					<% @form.questions.each do |question| %>
+						<%= hidden_field_tag 'id', @form.id %>
+						<%= text_field_tag question.id , nil, class: "form-control", placeholder: "Answer the question" %>
 					<% end %>
-				<% end %>
 
-				<div class="form-group">
-					<%= f.submit class: "btn btn-primary", value: "Send Answer" %>
-				</div>
+					<div class="form-group">
+						<%= submit_tag nil, class: "btn btn-primary", value: "Send Answer" %>
+					</div>
+				<% end %>
+			<% else %>
+				<% @form.questions.each do |question|  %>
+					<ul>
+						<% question.answers.each do |answer| %>
+							<li> <%= answer.body %> </li>
+						<% end %>
+					</ul>
+				<% end %>
 			<% end %>
+
+
 		</div>
 	</div>
 </div>

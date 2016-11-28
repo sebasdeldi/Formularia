@@ -35,7 +35,7 @@ class FormsController < ApplicationController
 				id_string = question_id.to_s
 				Answer.create(body: params[id_string], question_id: question_id)
 			end
-			redirect_to root_path
+			redirect_to :back, notice: "Answers correctly submited"
 		else
 			numberOfAnswers = questions_id.size
 			(0..numberOfAnswers-1).each do |i|

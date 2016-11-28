@@ -1,32 +1,47 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12">
-			<h1><%= @form.title %></h1>
-			<ol>
-				<% @form.questions.each do |question| %>
-					<li><%= question.body %></li>
-				<% end %>
-			</ol>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<h3 class="green"><%= @form.title %></h3>
+
 			<% if @form.user != current_user %>
 
 				<%= form_tag questions_answers_path do %>
 					<% @form.questions.each do |question| %>
+						<br>
+						<br>
 						<%= hidden_field_tag 'id', @form.id %>
+						<%= label_tag question.id, question.body %>
+						<br>
 						<%= text_field_tag question.id , nil, class: "form-control", placeholder: "Answer the question" %>
 					<% end %>
-
+					<br>
+					<br>
 					<div class="form-group">
-						<%= submit_tag nil, class: "btn btn-primary", value: "Send Answer" %>
+						<%= submit_tag nil, class: "btn btn-default", value: "Send Answer" %>
 					</div>
 				<% end %>
 			<% else %>
+
 				<% @form.questions.each do |question|  %>
+					<h5 class="green">Answers for <%= question.body %></h5>
 					<ul>
 						<% question.answers.each do |answer| %>
 							<li> <%= answer.body %> </li>
 						<% end %>
 					</ul>
+					<br>
+					<br>
 				<% end %>
+				<footer class="site-footer green-bg">
+				  <p class="black">Share your form's url (<span class="share-url"></span>)</p>
+				</footer>
+
 			<% end %>
 
 
@@ -34,3 +49,6 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+	$(".share-url").append(window.location.href);
+</script>

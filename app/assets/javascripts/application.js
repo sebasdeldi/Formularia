@@ -16,6 +16,31 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require forms
+//= require grayscale
+
+console.log("application.js loaded");
+
+var showLogIn = function() {
+
+  $(".work").on("click", function(event) {
+    $(".login-section").show();
+  });
+
+};
+
+$(document).ready(showLogIn);
+$(document).on("page:load", showLogIn);
 
 
 
+$(function() {
+   $('.notice').delay(500).fadeIn('normal', function() {
+      $(this).delay(1000).fadeOut();
+   });
+});
+
+$(function() {
+   $('.alert').delay(500).fadeIn('normal', function() {
+      $(this).delay(1000).fadeOut();
+   });
+});

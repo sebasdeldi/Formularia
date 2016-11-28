@@ -1,18 +1,26 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12">
-			<ul>
+			<ul class="custom-ul">
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
 				<% @forms.each do |form| %>
+
 					<% if current_user == form.user%>
+
 						<li>
 							<%= link_to form.title,  form_path(form)%>
-							<%= link_to "Delete Form", form_path(form), class: "btn btn-primary", method: :delete %>
+							<%= link_to " ", form_path(form), class: "glyphicon glyphicon-trash orange", method: :delete %>
 						</li>
+
 						<br>
 					<% end %>
 				<% end %>
 			</ul>
-			<%= link_to "Create Form", new_form_path, class: "btn btn-primary" %>
+			<%= link_to "Create Form", new_form_path, class: "btn btn-default" %>
 		</div>
 	</div>
 </div>

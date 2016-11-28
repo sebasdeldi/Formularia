@@ -1,26 +1,150 @@
-<h2>Log in</h2>
+<!-- Navigation -->
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll">
+                <i class="fa fa-play-circle"></i> <span class="light">For</span> Mularia
+            </a>
+        </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+                <li class="work">
+                    <a class="page-scroll" href=""  data-toggle="modal" data-target="#myModal" >Log In</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#about">About</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#download">Contribute</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- /.navbar-collapse -->
     </div>
-  <% end -%>
+    <!-- /.container -->
+</nav>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+<!-- Intro Header -->
+<header class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="brand-heading">Formularia</h1>
+                    <p class="intro-text">An open source, free and easy to use Form manager.
+                        <br>Created by Sebasdeldi.</p>
+                    <a href="#about" class="btn btn-circle page-scroll">
+                        <i class="fa fa-angle-double-down animated"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- About Section -->
+<section id="about" class="container content-section text-center">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>About Formularia</h2>
+            <p>Formularia lets you easily create forms, edit and share them with an unique link.</p>
+            <p>It also lets you manage the answers for each question of your form, so you can always keep track of your form's progress.</p>
+            <p>Formularia is free and open source, so feel free to contribute to the repo.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Download Section -->
+<section id="download" class="content-section text-center">
+    <div class="download-section">
+        <div class="container">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Contribute</h2>
+                <p>You can contribute to formularia's project on GitHub</p>
+                  <a href="https://github.com/sebasdeldi/Formularia" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Visit Repo</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="container content-section text-center">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Contact Dev</h2>
+            <p>Feel free to email us to provide some feedback on our site, give us suggestions for new features, or to just say hello!</p>
+            <p><a href="mailto:sebasdeldi@hotmail.com">sebasdeldi@hotmail.com</a>
+            </p>
+            <ul class="list-inline banner-social-buttons">
+                <li>
+                    <a href="https://twitter.com/sebasdeldi" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                </li>
+                <li>
+                    <a href="https://github.com/sebasdeldi/Formularia" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer>
+    <div class="container text-center">
+        <p>Copyright &copy; Formularia 2016</p>
+    </div>
+</footer>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Log In</h4>
+      </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="modal-body">
+            <div class="field form-group">
+              <%= f.label :email %><br/>
+              <%= f.email_field :email, autofocus: true, class: "form-control" %>
+            </div>
+
+            <div class="field form-group">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "off", class: "form-control"%>
+            </div>
+
+        <div class="footer">
+          <%= f.submit "Log in" , class: "btn btn-default"%>
+
+          <%= link_to "Sign up", new_registration_path(resource_name) , class: "btn btn-default"%>
+        </div>
+    <% end %>
+
+    </div>
   </div>
-<% end %>
+</div>
+<script type="text/javascript">
+    $(".home").hide();
+    $(".sUp").hide();
+</script>
 
-<%= render "devise/shared/links" %>
+
+
+
+

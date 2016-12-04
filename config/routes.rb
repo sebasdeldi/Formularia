@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :forms
   post 'forms/new'
   post 'forms/show', as: 'questions_answers'
-  post '/', to: "pages#info"
+  post '/cr7', to: "pages#info"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

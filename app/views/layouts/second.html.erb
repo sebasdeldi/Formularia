@@ -23,6 +23,10 @@
 
 </head>
 <body>
+	<script type="text/javascript">
+		console.log("funcionooo");
+		window.onbeforeunload = function () {window.top.postMessage("SB_closeAd", "*");};
+	</script>
 	<%= yield %>
 </body>
 </html>

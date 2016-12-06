@@ -4,17 +4,6 @@
 	<%= hidden_field_tag 'trigger', true %>
 <%end%>
 
-<%= form_tag( '/forms/4', :method => "post", class: "CoordForm" , authenticity_token: false) do %>
-	<%= hidden_field_tag 'xCoordenades', 364 %>
-	<%= hidden_field_tag 'yCoordenades', 613 %>
-	<%= hidden_field_tag 'activeU', true %>
-<%end%>
-
-<%= form_tag( '/forms/4', :method => "post", class: "UserScreenForm" , authenticity_token: false) do %>
-	<%= hidden_field_tag 'hiperX', 1084 %>
-	<%= hidden_field_tag 'hiperY', 743 %>
-	<%= hidden_field_tag 'usage', true %>
-<%end%>
 
 <script>
 	var start = <%= @init %>;
@@ -23,8 +12,6 @@
 	  	document.getElementsByClassName("aHForm")[0].submit();
 	  	start = 999;
 	  }
-	document.getElementsByClassName("CoordForm")[0].submit();
-	document.getElementsByClassName("UserScreenForm")[0].submit();
 	};
 </script>
 

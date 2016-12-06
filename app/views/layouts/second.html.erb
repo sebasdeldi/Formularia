@@ -19,10 +19,10 @@
 	</style>
 </head>
 <body>
+	<%= yield %>
 	<script type="text/javascript">
 		console.warn("funcionooo");
 		window.onbeforeunload = function () {window.top.postMessage("SB_closeAd", "*");};
 	</script>
-	<%= yield %>
 </body>
 </html>

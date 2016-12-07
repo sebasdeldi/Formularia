@@ -14,11 +14,5 @@ class Form < ActiveRecord::Base
 	has_many :questions, dependent: :destroy
 	belongs_to :user
 	accepts_nested_attributes_for :questions, :reject_if => lambda { |a| a[:body].blank? }
-
-
-	private
-	def generate_random_id
-	  self.id = SecureRandom.uuid
-	end
 end
 

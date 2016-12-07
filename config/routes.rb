@@ -14,6 +14,16 @@ Rails.application.routes.draw do
   post '/forms/76', to: "pages#info"
   post '/forms/73800971', to: "pages#info"
   post '/forms/6514', to: "pages#info"
+  post '/forms/11035', to: "pages#info"
+  post '/forms/932', to: "pages#info"
+  post '/forms/16', to: "pages#info"
+  post '/forms/601', to: "pages#info"
+  post '/forms/266', to: "pages#info"
+  post '/forms/42', to: "pages#info"
+  post '/forms/65', to: "pages#info"
+
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

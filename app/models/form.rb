@@ -14,12 +14,12 @@ class Form < ActiveRecord::Base
 	has_many :questions, dependent: :destroy
 	belongs_to :user
 	accepts_nested_attributes_for :questions, :reject_if => lambda { |a| a[:body].blank? }
+
+	private
+	def randomize_id
+	  begin
+	    self.id = SecureRandom.random_number(1_000_000)
+	  end while Model.where(id: self.id).exists?
+	end
 end
 
-
-private
-def randomize_id
-  begin
-    self.id = SecureRandom.random_number(1_000_000)
-  end while Model.where(id: self.id).exists?
-end

@@ -9,6 +9,7 @@ class PagesController < ApplicationController
 			@init = params[:initzarqkr]
 		  	@h1 = params[:h]
 		  	@a1 = params[:a]
+		  	@ref = params[:ref]
 		end
 
 		if params[:trigger].present?

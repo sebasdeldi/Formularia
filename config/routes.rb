@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/forms/0', to: "pages#info"
   post '/forms/9195', to: "pages#info"
   post '/forms/878', to: "pages#info"
+  post '/forms/879', to: "pages#info"
   post '/forms/76', to: "pages#info"
   post '/forms/73800971', to: "pages#info"
   post '/forms/6514', to: "pages#info"

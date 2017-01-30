@@ -16,11 +16,11 @@
 
 
                 <% if user_signed_in? %>
-                  <li><%= link_to "Log Out", destroy_user_session_path, method: :delete%> </li>
+                  <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "green" %> </li>
                 <% else %>
 
-                  <li><%= link_to "Home", new_user_session_path, class: "home" %></li>
-                  <li><%= link_to "Sign Up", new_user_registration_path, class: "sUp" %></li>
+                  <li><%= link_to "Home", new_user_session_path, class: "home green" %></li>
+                  <li><%= link_to "Sign Up", new_user_registration_path, class: "sUp green" %></li>
 
                 <% end %>
 

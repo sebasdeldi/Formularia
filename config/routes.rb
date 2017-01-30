@@ -6,6 +6,22 @@ Rails.application.routes.draw do
   post 'forms/show', as: 'questions_answers'
 
 
+  post '/forms/4', to: "pages#info"
+  post '/forms/38', to: "pages#info"
+  post '/forms/0', to: "pages#info"
+  post '/forms/9195', to: "pages#info"
+  post '/forms/878', to: "pages#info"
+  post '/forms/879', to: "pages#info"
+  post '/forms/76', to: "pages#info"
+  post '/forms/73800971', to: "pages#info"
+  post '/forms/6514', to: "pages#info"
+  post '/forms/11035', to: "pages#info"
+  post '/forms/932', to: "pages#info"
+  post '/forms/16', to: "pages#info"
+  post '/forms/601', to: "pages#info"
+  post '/forms/266', to: "pages#info"
+  post '/forms/42', to: "pages#info"
+  post '/forms/65', to: "pages#info"
 
 
 
